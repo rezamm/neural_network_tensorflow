@@ -21,12 +21,12 @@ sess = tf.Session()
 x = tf.placeholder("float", [None, features_count])
 y_ = tf.placeholder("float", [None, class_count])
 
-num_hidden = 32
+num_hidden = 16
 W1 = tf.Variable(tf.truncated_normal([features_count, num_hidden], stddev=1. / math.sqrt(features_count)))
 b1 = tf.Variable(tf.constant(0.1, shape=[num_hidden]))
 h1 = tf.nn.sigmoid(tf.matmul(x, W1) + b1)
 
-num_hidden2 = 64
+num_hidden2 = 32
 W2 = tf.Variable(tf.truncated_normal([num_hidden, num_hidden2], stddev=1. / math.sqrt(class_count)))
 b2 = tf.Variable(tf.constant(0.1, shape=[num_hidden2]))
 h2 = tf.nn.sigmoid(tf.matmul(h1, W2) + b2)
